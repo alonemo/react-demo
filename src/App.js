@@ -15,8 +15,7 @@ function App() {
     setCartIsShown(false);
   };
 
-  // and here we wanna wrap all our components with CartProvider here because all of them need to access to Cart context
-  // by using a separate CartProvider component we keep the app component lean!
+  
 
   return (
     <CartProvider>

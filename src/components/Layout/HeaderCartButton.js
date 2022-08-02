@@ -6,11 +6,11 @@ import classes from './HeaderCartButton.module.css';
 const HeaderCartButton = props => {
   const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
 
-  const cartCtx = useContext(CartContext); // not the CartProvider
+  const cartCtx = useContext(CartContext); 
   const { items } = cartCtx;
   const numberOfCartItems = items.reduce((curNumber, item) => {
     return curNumber + item.amount;
-  }, 0); // here we transform an array to one single value, second argument is starting value
+  }, 0); 
 
   const btnClasses = `${classes.button} ${
     btnIsHighlighted ? classes.bump : ''

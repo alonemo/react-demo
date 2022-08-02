@@ -26,8 +26,7 @@ const cartReduser = (state, action) => {
       updatedItems = [...state.items];
       updatedItems[existingCartItemIndex] = updatedItem;
     } else {
-      updatedItems = state.items.concat(action.item); // instead of push it doesn't editing existing array but return new array
-      // because we dont want to update our old state snapshot
+      updatedItems = state.items.concat(action.item); 
     }
 
     return {
@@ -91,8 +90,4 @@ const CartProvider = props => {
 
 export default CartProvider;
 
-// The goal of this Component is to manage the current context to data and provide that context
-// to all components that want access to it
 
-// And we can also add all the logic for managing the context data to this component
-// so that all about that is contained in one component and no other component needs to deal with that
