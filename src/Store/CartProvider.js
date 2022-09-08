@@ -50,6 +50,10 @@ const cartReducer = (state, action) => {
       updatedItems[existingCartItemIndex] = updatedItem;
     }
 
+    if(updatedTotalAmount<0){
+      updatedTotalAmount = Math.ceil(updatedTotalAmount);
+    }
+    
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
