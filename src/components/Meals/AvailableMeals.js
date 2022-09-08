@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Card from '../UI/Card';
-import classes from './AvailableMeals.module.css';
 import MealItem from './MealItem/MealItem';
+import classes from './AvailableMeals.module.css';
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
@@ -10,7 +10,7 @@ const AvailableMeals = () => {
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch(
-        'https://react-http-33739-default-rtdb.asia-southeast1.firebasedatabase.app/Meals.json'
+        'https://react-http-577b0-default-rtdb.firebaseio.com/Meals.json'
       );
 
       if (!response.ok) {
@@ -35,7 +35,7 @@ const AvailableMeals = () => {
     fetchMeals().catch(error => {
       setIsLoading(false);
       setHttpError(error.message);
-    });
+    }); 
   }, []);
 
   if (isLoading) {
@@ -54,17 +54,15 @@ const AvailableMeals = () => {
     );
   }
 
-  const mealsList = meals.map(meal => {
-    return (
-      <MealItem
-        id={meal.id}
-        key={meal.id}
-        name={meal.name}
-        description={meal.description}
-        price={meal.price}
-      />
-    );
-  });
+  const mealsList = meals.map(meal => (
+    <MealItem
+      key={meal.id}
+      id={meal.id}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
+    />
+  ));
 
   return (
     <section className={classes.meals}>
